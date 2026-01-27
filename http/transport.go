@@ -21,7 +21,10 @@ type readTrackingBody struct {
 	didClose bool
 }
 
-type Transport struct{}
+type Transport struct {
+	// Proxy is a no-op, see [http.ProxyFromEnvironment].
+	Proxy func(*Request) (*url.URL, error)
+}
 
 var DefaultTransport RoundTripper = &Transport{}
 
