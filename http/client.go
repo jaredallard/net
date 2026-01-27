@@ -27,6 +27,12 @@ import (
 	"golang.org/x/net/http/httpguts"
 )
 
+// ErrUseLastResponse can be returned by Client.CheckRedirect hooks to
+// control how redirects are processed. If returned, the next request
+// is not sent and the most recent response is returned with its body
+// unclosed.
+var ErrUseLastResponse = errors.New("net/http: use last response")
+
 // A Client is an HTTP client. Its zero value (DefaultClient) is a
 // usable client that uses DefaultTransport.
 //
