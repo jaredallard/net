@@ -29,3 +29,12 @@ var DefaultTransport RoundTripper = &Transport{}
 func (t *Transport) RoundTrip(req *Request) (*Response, error) {
 	return roundTrip(req)
 }
+
+// ProxyFromEnvironment is a no-op version of [http.ProxyFromEnvironment]
+// it is provided only for compilation success.
+//
+// See also:
+// https://pkg.go.dev/golang.org/x/net/http/httpproxy#Config.ProxyFunc
+func ProxyFromEnvironment(req *Request) (*url.URL, error) {
+	return nil, nil
+}
