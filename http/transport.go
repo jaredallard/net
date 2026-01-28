@@ -13,6 +13,7 @@ package http
 
 import (
 	"io"
+	"net/url"
 )
 
 type readTrackingBody struct {
